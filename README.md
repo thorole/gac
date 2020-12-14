@@ -1,6 +1,6 @@
 ### 🖼️ Visual References
 
-![Chart Challenge](src\assets\images\project.png)
+![Chart Challenge](src/assets/images/project.png)
 
 ### 🚀 Quickstart
 
