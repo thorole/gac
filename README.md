@@ -1,6 +1,6 @@
 ### 🖼️ Visual References
 
-![Chart Challenge](url)
+![Chart Challenge](.\src\assets\images\project.png)
 
 ### 🚀 Quickstart
 
@@ -17,7 +17,7 @@
 
 ### 🎨 Adobe XD Design Handoff
 
-    Design Handoff: <url>
+    Design Handoff: https://xd.adobe.com/view/82ec3234-0ad0-4067-86f2-8d244dcd22c2-d7bf/specs/
 
 If you have XD installed, feel free to use the XD file. If not, simply use the design handoff url.
 
