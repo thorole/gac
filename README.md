@@ -8,7 +8,7 @@
 
     - clone the repo https://git.diggit.space/workable-welcome/diggit.content.frontend.chart.git
     - understand the codebase
-    - check out the developer handoff design link (url)
+    - check out the developer handoff design link
 
 #### What To Do
 
@@ -28,7 +28,7 @@ Here’s an overview of the folder structure. Each element is briefly described.
     ├── public/    # contains the HTML file so you can tweak it, for example, to set the page title and other static files
     ├── src/               # the main container for your project
     │   │
-    │   ├── assets/          # images, icons, fonts, colors
+    │   ├── assets/          # images, icons, colors
     │   ├── components/          # anything that could be a reusable piece of UI lands here
     │   ├── screens/       # each screen is build with multiple components and together they create a screen to display for a user such as Homepage, About, Catalog etc
     │   ├── services/           # these files work as a temporary back-end for the project
