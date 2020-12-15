@@ -1,42 +1,32 @@
-import React, { Component } from "react";
-import styles from "./Dropdown.module.css";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Dropdown.module.css";
 
-class DropdownGender extends Component {
-  handleClick = (element) => {
+const DropdownGender = ({ dropdownData, displayed, onClickGender }) => {
+  const handleClick = (element) => {
     let el = { ...element };
     let elName = el.name;
     let elId = el.id;
-    console.log(elName, elId);
-    this.props.onClickGender(elName, elId);
+    onClickGender(elName, elId);
   };
-  render() {
-    const { dropdownData, displayed } = this.props;
-
-    return (
-      <div className={styles.dropdown}>
-        <button className={styles.dropdownBtn}>
-          {displayed}
-          <FontAwesomeIcon
-            icon={faSortDown}
-            className={styles.icon}
-          />
-        </button>
-        <div className={styles.dropdownContent}>
-          {dropdownData.map((element) => {
-            return (
-              <a
-                key={element.id}
-                onClick={() => this.handleClick(element)}>
-                {element.name}
-              </a>
-            );
-          })}
-        </div>
+  return (
+    <div className={styles.dropdown}>
+      <button className={styles.dropdownBtn}>
+        {displayed}
+        <FontAwesomeIcon icon={faSortDown} className={styles.icon} />
+      </button>
+      <div className={styles.dropdownContent}>
+        {dropdownData.map((element) => {
+          return (
+            <p key={element.id} onClick={() => handleClick(element)}>
+              {element.name}
+            </p>
+          );
+        })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default DropdownGender;

@@ -2,51 +2,34 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
 import MainBoard from "../../components/MainBoard/MainBoard";
+
 import { fakeData } from "../../services/individuals";
 import { fakeCompanies } from "../../services/companies";
+
 import styles from "./Homepage.module.css";
 
 const Homepage = () => {
   const [individualsData] = useState(fakeData());
   const [companiesData] = useState(fakeCompanies());
   const [currentUser] = useState("Elsa Andersen");
+
   const [individuals] = useState({
-    labels: [
-      "",
-      "Jun'19",
-      "Jul'19",
-      "Aug'19",
-      "Sep'19",
-      "Oct'19",
-      "Nov'19",
-      "Dec'19",
-      "",
-    ],
+    labels: ["", "Jun'19", "Jul'19", "Aug'19", "Sep'19", "Oct'19", "Nov'19", "Dec'19", ""],
     label: "Signups",
     data: [0, 9, 3, 6, 4, 4, 3, 9, 8],
   });
   const [companies] = useState({
-    labels: [
-      "",
-      "Jun'19",
-      "Jul'19",
-      "Aug'19",
-      "Sep'19",
-      "Oct'19",
-      "Nov'19",
-      "Dec'19",
-      "",
-    ],
+    labels: ["", "Jun'19", "Jul'19", "Aug'19", "Sep'19", "Oct'19", "Nov'19", "Dec'19", ""],
     label: "Signups",
     data: [0, 6, 4, 9, 7, 4, 5, 8, 5],
   });
+
   const [doughnut] = useState({
     data: [364, 284],
     labels: ["Companies", "Individuals"],
   });
 
   const [h_currentPage, setH_currentPage] = useState(1);
-
   const [v_current, setV_current] = useState(1);
   const [header_info] = useState({
     totalSignups: 648,
@@ -57,23 +40,14 @@ const Homepage = () => {
     totalExits: 23,
   });
   const [header_select] = useState([
-    { id: 1, name: "option-1" },
-    { id: 2, name: "option-2" },
-    { id: 3, name: "option-3" },
+    { id: 1, name: "Overview1" },
+    { id: 2, name: "Overview2" },
+    { id: 3, name: "Overview3" },
   ]);
   const [header_displayed] = useState("Overview");
-  const [
-    sort_displayed_gender,
-    setSort_displayed_gender,
-  ] = useState("Gender");
-  const [
-    sort_displayed_type,
-    setSort_displayed_type,
-  ] = useState("Type");
-  const [
-    sort_displayed_value,
-    setSort_displayed_value,
-  ] = useState();
+  const [sort_displayed_gender, setSort_displayed_gender] = useState("Gender");
+  const [sort_displayed_type, setSort_displayed_type] = useState("Type");
+  const [sort_displayed_value, setSort_displayed_value] = useState("102");
   const [anti_loop, setAnti_loop] = useState(false);
 
   useEffect(() => {
@@ -107,18 +81,14 @@ const Homepage = () => {
       setAnti_loop(false);
       if (displayedType === "Companies") {
         let filtered = companies.filter(
-          (c) =>
-            c.gender.toUpperCase() ===
-            displayedGender.toUpperCase()
+          (c) => c.gender.toUpperCase() === displayedGender.toUpperCase()
         );
         let output = filtered.length;
 
         setSort_displayed_value(output);
       } else if (displayedType === "Individuals") {
         let filtered = individuals.filter(
-          (c) =>
-            c.gender.toUpperCase() ===
-            displayedGender.toUpperCase()
+          (c) => c.gender.toUpperCase() === displayedGender.toUpperCase()
         );
         let output = filtered.length;
 
@@ -127,18 +97,12 @@ const Homepage = () => {
     }
   };
 
-  const sort_handleClickGender = (
-    displayedGender,
-    displayedId
-  ) => {
+  const sort_handleClickGender = (displayedGender, displayedId) => {
     setSort_displayed_gender(displayedGender);
     setAnti_loop(true);
   };
 
-  const sort_handleClickType = (
-    displayedType,
-    displayedId
-  ) => {
+  const sort_handleClickType = (displayedType, displayedId) => {
     setSort_displayed_type(displayedType);
     setAnti_loop(true);
   };
@@ -146,11 +110,7 @@ const Homepage = () => {
   return (
     <div className={styles.wrapper}>
       <Navbar user={currentUser} />
-      <Header
-        headerInfo={header_info}
-        dropdownData={header_select}
-        displayed={header_displayed}
-      />
+      <Header headerInfo={header_info} dropdownData={header_select} displayed={header_displayed} />
       <MainBoard
         individualsData={individualsData}
         companiesData={companiesData}

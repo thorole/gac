@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   width: 100%;
-  height: 5vh;
+  height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,19 +10,20 @@
 }
 
 .wrapper h3 {
-  position: relative;
   height: 100%;
-  color: #849fb4;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  width: 12%;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
   text-align: left;
+  cursor: pointer;
+  position: relative;
+  padding: 0 2em 0 1em;
+  font-weight: 500;
 }
 
 .wrapper .active {
-  color: #1bfbe4;
+  color: #e03e52;
 }

@@ -2,12 +2,12 @@ import React from "react";
 
 import HorizontalPagination from "../Pagination/HorizontalPagination/HorizontalPagination";
 import VerticalPagination from "../Pagination/VerticalPagination/VerticalPagination";
-// import TotalSignups from "../../components/TotalSignups/TotalSignups";
 import GenderSort from "../GenderSort/GenderSort";
 import Meetings from "../Meetings/Meetings";
+import DoughnutChart from "../DoughnutChart/DoughnutChart";
 
 import funds from "../../assets/icons/funds.svg";
-import Group from "../../assets/icons/Group.svg";
+import Group from "../../assets/icons/group.png";
 import SyncIcon from "../../assets/icons/SyncIcon.svg";
 import history from "../../assets/icons/history.svg";
 import verificationIcon from "../../assets/icons/verificationIcon.svg";
@@ -28,7 +28,6 @@ const MainBoard = ({
   h_currentPage,
   v_onPageChange,
   h_onPageChange,
-  onDoughnutLenght,
   sort_handleClickGender,
   sort_handleClickType,
 }) => {
@@ -42,11 +41,9 @@ const MainBoard = ({
   ];
 
   const h_pages = [
-    { id: 1, name: "Signups" },
-    { id: 2, name: "Investment" },
-    { id: 3, name: "Revenue" },
-    { id: 4, name: "Exits" },
-    { id: 5, name: "Trades" },
+    { id: 1, name: "Status" },
+    { id: 2, name: "Applications" },
+    { id: 3, name: "Site Traffic" },
   ];
 
   const sort_select_gender = [
@@ -58,6 +55,14 @@ const MainBoard = ({
     { id: 2, name: "Companies" },
   ];
 
+  const getDoughnutLenght = () => {
+    let length = doughnut.data.reduce((a, b) => {
+      return a + b;
+    });
+
+    return length;
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.mainBoard}>
@@ -65,9 +70,7 @@ const MainBoard = ({
           <VerticalPagination
             pages={v_icons}
             currentPage={v_current}
-            onPageChange={(icon_id) =>
-              v_onPageChange(icon_id)
-            }
+            onPageChange={(icon_id) => v_onPageChange(icon_id)}
           />
         </div>
         <div className={styles.board}>
@@ -88,7 +91,27 @@ const MainBoard = ({
               </div>
             </div>
             <div className={styles.displayInfo}>
-
+              <div className={styles.donutWrapper}>
+                <div className={styles.chartWrapper}>
+                  <DoughnutChart labels={doughnut.labels} data={doughnut.data} />
+                  <div className={styles.donutLength}>
+                    <h2>{getDoughnutLenght()}</h2>
+                  </div>
+                </div>
+                <div className={styles.chartInfoWrapper}>
+                  <h2>Total Signups</h2>
+                  <div className={styles.chartStats}>
+                    <p className={styles.pCol}>
+                      <span>{doughnut.labels[0]}</span>
+                      <span className={styles.companies}>{doughnut.data[0]}</span>
+                    </p>
+                    <p className={styles.pCol}>
+                      <span>{doughnut.labels[1]}</span>
+                      <span className={styles.individuals}>{doughnut.data[1]}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className={styles.sort}>
                 <GenderSort
                   selectGender={sort_select_gender}
@@ -96,32 +119,17 @@ const MainBoard = ({
                   displayedGender={sort_displayed_gender}
                   displayedType={sort_displayed_type}
                   displayedValue={sort_displayed_value}
-                  onClickGender={(
-                    displayedGender,
-                    displayedId
-                  ) =>
-                    sort_handleClickGender(
-                      displayedGender,
-                      displayedId
-                    )
+                  onClickGender={(displayedGender, displayedId) =>
+                    sort_handleClickGender(displayedGender, displayedId)
                   }
-                  onClickType={(
-                    displayedType,
-                    displayedId
-                  ) =>
-                    sort_handleClickType(
-                      displayedType,
-                      displayedId
-                    )
+                  onClickType={(displayedType, displayedId) =>
+                    sort_handleClickType(displayedType, displayedId)
                   }
                 />
               </div>
 
               <div className={styles.meetings}>
-                <Meetings
-                  individuals={individualsData}
-                  companies={companiesData}
-                />
+                <Meetings individuals={individualsData} companies={companiesData} />
               </div>
             </div>
           </div>

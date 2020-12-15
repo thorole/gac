@@ -1,66 +1,48 @@
-import React, { Component } from "react";
-import Logo from "../../assets/images/logo.png";
-import Avatar from "../../assets/images/avatar.png";
-import styles from "./Navbar.module.css";
+import React, { useState, useEffect } from "react";
 import { getCurrentTime } from "../../utils/getTime";
 import { getCurrentDate } from "../../utils/getDate";
+import Avatar from "../../assets/images/profileImage.png";
+import Logo from "../../assets/icons/INLogo.png";
+import styles from "./Navbar.module.css";
 
-class Navbar extends Component {
-  state = {
-    date: undefined,
-    time: undefined,
-  };
+const Navbar = ({ user }) => {
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
 
-  componentDidMount() {
+  useEffect(() => {
     setInterval(() => {
       let { year, month, day } = getCurrentDate();
-      this.setState({
-        date: `${day}-${month}-${year}`,
-      });
+      setDate(`${day}-${month}-${year}`);
     }, 1000);
 
     setInterval(() => {
       let { hours, minutes, format } = getCurrentTime();
-      this.setState({
-        time: `${hours}:${minutes} ${format}`,
-      });
+      setTime(`${hours}:${minutes} ${format}`);
     }, 1000);
-  }
+  }, []);
 
-  render() {
-    return (
-      <nav>
-        <div className={styles.logoWrapper}>
-          <img
-            src={Logo}
-            className={styles.mainLogo}
-            alt={"logo"}
-          />
+  return (
+    <nav>
+      <div className={styles.logoWrapper}>
+        <img src={Logo} className={styles.mainLogo} alt={"logo"} />
+      </div>
+      <div className={styles.linksWrapper}>
+        <div className={styles.links}>
+          <h1>Account</h1>
+          <h1>Charts</h1>
+          <h1>Help</h1>
         </div>
-        <div className={styles.linksWrapper}>
-          <div className={styles.links}>
-            <h1>Account</h1>
-            <h1>Charts</h1>
-            <h1>Help</h1>
-          </div>
-          <div className={styles.profile}>
-            <img
-              src={Avatar}
-              className={styles.profileImg}
-              alt={"avatar"}
-            />
-            <h1 className={styles.name}>
-              {this.props.user}
-            </h1>
-            <div className={styles.date}>
-              <p>{this.state.date}</p>
-              <h1>{this.state.time}</h1>
-            </div>
+        <div className={styles.profile}>
+          <img src={Avatar} className={styles.profileImg} alt={"avatar"} />
+          <h1 className={styles.name}>{user}</h1>
+          <div className={styles.date}>
+            <p>{date}</p>
+            <h1>{time}</h1>
           </div>
         </div>
-      </nav>
-    );
-  }
-}
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;

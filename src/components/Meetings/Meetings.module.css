@@ -1,69 +1,76 @@
 .wrapper {
-  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  background-color: #c6d6e3;
+  position: relative;
   border-radius: 10px;
-  background-color: #0b0e19;
 }
 
 .wrapper .header {
-  position: relative;
-  height: 38%;
   width: 98%;
+  height: 38%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  background-color: #050711;
+  background-color: #c6d6e3;
+  position: relative;
 }
 
 .wrapper .header h2 {
-  font-size: 22px;
-  color: #849fb4;
+  color: #000000;
+  font-size: 23px;
+  font-weight: 500;
   padding-left: 30px;
-  font-weight: 600;
 }
 
 .wrapper .header .headerMenu {
-  font-weight: 600;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  color: #849fb4;
+  color: #000000;
+  font-weight: 600;
 }
 
 .wrapper .table {
-  position: relative;
-  height: 60%;
   width: 98%;
+  height: 60%;
+  position: relative;
 }
 
 .TablesAreWeird {
   width: 100%;
   height: 30%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-direction: row;
-  border-bottom: 1px solid #181922;
-  color: #cccccc;
+  align-items: center;
+  color: #000000;
+  border-bottom: 1px solid rgba(65, 85, 142, 0.19);
 }
 
 .nameMenu {
+  font-size: 13px;
+  font-weight: 600;
   padding-left: 10px;
   transform: translateX(10px);
 }
 
+.innerWrapper p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .name {
-  transform: translateX(25px);
+  font-size: 13px;
   padding-left: 10px;
-  border-left: solid 7px black;
+  transform: translateX(25px);
+  border-left: solid 5px black;
 }
 
 .innerWrapper {
