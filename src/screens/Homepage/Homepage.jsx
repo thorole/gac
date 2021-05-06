@@ -13,11 +13,18 @@ const Homepage = () => {
   const [companiesData] = useState(fakeCompanies());
   const [currentUser] = useState("Elsa Andersen");
 
-  const [individuals] = useState({
-    labels: ["", "Jun'19", "Jul'19", "Aug'19", "Sep'19", "Oct'19", "Nov'19", "Dec'19", ""],
-    label: "Signups",
-    data: [0, 9, 3, 6, 4, 4, 3, 9, 8],
-  });
+  const [individuals] = useState([
+      {label: "", amount: 0},
+      {label: "Jun'19", amount: 9},
+      {label: "Jul'19", amount: 3},
+      {label: "Aug'19", amount: 6},
+      {label: "Sep'19", amount: 4},
+      {label: "Oct'19", amount: 4},
+      {label: "Nov'19", amount: 3},
+      {label: "Dec'19", amount: 9},
+      {label: "", amount: 8},
+      
+  ]);
   const [companies] = useState({
     labels: ["", "Jun'19", "Jul'19", "Aug'19", "Sep'19", "Oct'19", "Nov'19", "Dec'19", ""],
     label: "Signups",

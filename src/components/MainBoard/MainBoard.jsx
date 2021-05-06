@@ -5,6 +5,7 @@ import VerticalPagination from "../Pagination/VerticalPagination/VerticalPaginat
 import GenderSort from "../GenderSort/GenderSort";
 import Meetings from "../Meetings/Meetings";
 import DoughnutChart from "../DoughnutChart/DoughnutChart";
+import AreaC from "../AreaChart/AreaChart";
 
 import funds from "../../assets/icons/funds.svg";
 import Group from "../../assets/icons/group.png";
@@ -14,6 +15,7 @@ import verificationIcon from "../../assets/icons/verificationIcon.svg";
 import lockedPadlock from "../../assets/icons/lockedPadlock.svg";
 
 import styles from "./MainBoard.module.css";
+//import { AreaChart } from "recharts";
 
 const MainBoard = ({
   individualsData,
@@ -82,11 +84,11 @@ const MainBoard = ({
           <div className={styles.display}>
             <div className={styles.displayCharts}>
               <div className={styles.upperChart}>
-                {/* Individuals Chart */}
+                <AreaC data={individuals} color="colorOptOne"/>
                 {/* Required data: individuals */}
               </div>
               <div className={styles.lowerChart}>
-                {/* Companies Chart */}
+                <AreaC />
                 {/* Required data: companies */}
               </div>
             </div>
