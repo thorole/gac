@@ -25,11 +25,18 @@ const Homepage = () => {
       {label: "", amount: 8},
       
   ]);
-  const [companies] = useState({
-    labels: ["", "Jun'19", "Jul'19", "Aug'19", "Sep'19", "Oct'19", "Nov'19", "Dec'19", ""],
-    label: "Signups",
-    data: [0, 6, 4, 9, 7, 4, 5, 8, 5],
-  });
+
+  const [companies] = useState([
+    {label: "", amount: 0},
+    {label: "Jun'19", amount: 6},
+    {label: "Jul'19", amount: 4},
+    {label: "Aug'19", amount: 9},
+    {label: "Sep'19", amount: 7},
+    {label: "Oct'19", amount: 4},
+    {label: "Nov'19", amount: 5},
+    {label: "Dec'19", amount: 8},
+    {label: "", amount: 5},
+  ]);
 
   const [doughnut] = useState({
     data: [364, 284],

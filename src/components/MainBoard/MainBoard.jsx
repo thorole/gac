@@ -88,7 +88,7 @@ const MainBoard = ({
                 {/* Required data: individuals */}
               </div>
               <div className={styles.lowerChart}>
-                <AreaC />
+                <AreaC data={companies} color="colorOptTwo" />
                 {/* Required data: companies */}
               </div>
             </div>
