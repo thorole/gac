@@ -55,8 +55,12 @@
 
 .wrapper .mainBoard .board .display .displayCharts .upperChart,
 .wrapper .mainBoard .board .display .displayCharts .lowerChart {
-  height: 48%;
   width: 98%;
+  background-color: #c6d6e3;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 5px;
+  padding-left: 3px;
 }
 
 .wrapper .mainBoard .board .display .displayInfo .donutWrapper {

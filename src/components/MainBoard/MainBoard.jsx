@@ -15,7 +15,6 @@ import verificationIcon from "../../assets/icons/verificationIcon.svg";
 import lockedPadlock from "../../assets/icons/lockedPadlock.svg";
 
 import styles from "./MainBoard.module.css";
-//import { AreaChart } from "recharts";
 
 const MainBoard = ({
   individualsData,
@@ -84,11 +83,11 @@ const MainBoard = ({
           <div className={styles.display}>
             <div className={styles.displayCharts}>
               <div className={styles.upperChart}>
-                <AreaC data={individuals} color="colorOptOne"/>
+                <AreaC data={individuals} legend="Individuals" color={"colorOptOne"}/>
                 {/* Required data: individuals */}
               </div>
               <div className={styles.lowerChart}>
-                <AreaC data={companies} color="colorOptTwo" />
+                <AreaC data={companies} legend="Companies" color="colorOptTwo" />
                 {/* Required data: companies */}
               </div>
             </div>

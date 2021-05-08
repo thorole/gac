@@ -14,28 +14,28 @@ const Homepage = () => {
   const [currentUser] = useState("Elsa Andersen");
 
   const [individuals] = useState([
-      {label: "", amount: 0},
-      {label: "Jun'19", amount: 9},
-      {label: "Jul'19", amount: 3},
-      {label: "Aug'19", amount: 6},
-      {label: "Sep'19", amount: 4},
-      {label: "Oct'19", amount: 4},
-      {label: "Nov'19", amount: 3},
-      {label: "Dec'19", amount: 9},
-      {label: "", amount: 8},
-      
+    { label: "", amount: 0 },
+    { label: "Jun'19", amount: 9 },
+    { label: "Jul'19", amount: 3 },
+    { label: "Aug'19", amount: 6 },
+    { label: "Sep'19", amount: 4 },
+    { label: "Oct'19", amount: 4 },
+    { label: "Nov'19", amount: 3 },
+    { label: "Dec'19", amount: 9 },
+    { label: "", amount: 8 },
+
   ]);
 
   const [companies] = useState([
-    {label: "", amount: 0},
-    {label: "Jun'19", amount: 6},
-    {label: "Jul'19", amount: 4},
-    {label: "Aug'19", amount: 9},
-    {label: "Sep'19", amount: 7},
-    {label: "Oct'19", amount: 4},
-    {label: "Nov'19", amount: 5},
-    {label: "Dec'19", amount: 8},
-    {label: "", amount: 5},
+    { label: "", amount: 0 },
+    { label: "Jun'19", amount: 6 },
+    { label: "Jul'19", amount: 4 },
+    { label: "Aug'19", amount: 9 },
+    { label: "Sep'19", amount: 7 },
+    { label: "Oct'19", amount: 4 },
+    { label: "Nov'19", amount: 5 },
+    { label: "Dec'19", amount: 8 },
+    { label: "", amount: 5 },
   ]);
 
   const [doughnut] = useState({
@@ -66,7 +66,7 @@ const Homepage = () => {
 
   useEffect(() => {
     sort_handleDisplayedValue();
-  }, []);
+  }, );
 
   const h_handlePageChange = (page) => {
     setH_currentPage(page);
