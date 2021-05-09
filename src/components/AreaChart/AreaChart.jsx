@@ -3,9 +3,9 @@ import React from "react"
 import { AreaChart, Area, XAxis, YAxis, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 
 
-function AreaC(props) {
+function GradientAreaChart(props) {
   return (
-    <ResponsiveContainer width="100%" height={210}>
+    <ResponsiveContainer width="100%" height={212}>
       <AreaChart
         data={props.data}
         margin={{
@@ -17,12 +17,12 @@ function AreaC(props) {
       >
         <defs>
           <linearGradient id="colorOptOne" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="1%" stopColor="#FCE300" stopOpacity={1} />
-            <stop offset="99%" stopColor="#9c9a00" stopOpacity={0} />
+            <stop offset="5%" stopColor="#FCE300" stopOpacity={1} />
+            <stop offset="95%" stopColor="#9c9a00" stopOpacity={0} />
           </linearGradient>
           <linearGradient id="colorOptTwo" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#E03E52" stopOpacity={1} />
-            <stop offset="95%" stopColor="#7d2530" stopOpacity={0} />
+            <stop offset="95%" stopColor="#2e0e12" stopOpacity={0} />
           </linearGradient>
         </defs>
         <XAxis dataKey="label" axisLine={false} tick={{ fontSize: 13 }} mirror={true} tickSize="0" />
@@ -35,4 +35,4 @@ function AreaC(props) {
   );
 }
 
-export default AreaC
+export default GradientAreaChart

@@ -5,7 +5,7 @@ import VerticalPagination from "../Pagination/VerticalPagination/VerticalPaginat
 import GenderSort from "../GenderSort/GenderSort";
 import Meetings from "../Meetings/Meetings";
 import DoughnutChart from "../DoughnutChart/DoughnutChart";
-import AreaC from "../AreaChart/AreaChart";
+import GradientAreaChart from "../AreaChart/AreaChart";
 
 import funds from "../../assets/icons/funds.svg";
 import Group from "../../assets/icons/group.png";
@@ -83,12 +83,10 @@ const MainBoard = ({
           <div className={styles.display}>
             <div className={styles.displayCharts}>
               <div className={styles.upperChart}>
-                <AreaC data={individuals} legend="Individuals" color={"colorOptOne"}/>
-                {/* Required data: individuals */}
+                <GradientAreaChart data={individuals} legend="Individuals" color="colorOptOne" />
               </div>
               <div className={styles.lowerChart}>
-                <AreaC data={companies} legend="Companies" color="colorOptTwo" />
-                {/* Required data: companies */}
+                <GradientAreaChart data={companies} legend="Companies" color="colorOptTwo" />
               </div>
             </div>
             <div className={styles.displayInfo}>
